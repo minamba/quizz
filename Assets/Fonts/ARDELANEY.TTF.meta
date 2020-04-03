@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 87c0baf15e6036a4dbc51f597d184f8d
+timeCreated: 1523845743
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AR DELANEY
+  fontNames:
+  - AR DELANEY
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

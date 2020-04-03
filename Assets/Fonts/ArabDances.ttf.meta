@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 700462bfee2a52a448b1f718c93683ed
+timeCreated: 1527574327
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ArabDances
+  fontNames:
+  - ArabDances
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
