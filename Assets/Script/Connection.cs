@@ -25,9 +25,6 @@ public class Connection : MonoBehaviour {
         canvasForm = GameObject.Find("CanvasErrorForm");
         canvasForm.SetActive(false);
         UserStatus();
-
-
-
     }
 
 

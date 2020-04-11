@@ -18,8 +18,8 @@ public class CallWebService : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(CharactersListtt());
-        StartCoroutine(LevelListtt());
+        //StartCoroutine(CharactersListtt());
+        //StartCoroutine(LevelListtt());
     }
 
     //LIST OF CHARACTERS
@@ -34,7 +34,7 @@ public class CallWebService : MonoBehaviour
     }
 
 
-    //LIST OF LEVELS
+    ////LIST OF LEVELS
     public IEnumerator LevelListtt()
     {
         WWW www = new WWW("http://www.ousraty.fr/WebService1.asmx/GetLevels");

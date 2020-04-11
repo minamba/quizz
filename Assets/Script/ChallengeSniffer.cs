@@ -31,7 +31,7 @@ public class ChallengeSniffer : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {  
+	//void Update () {  
 
         //Tant qu'on me challenge pas, je verifie dans la table des challenge si j'apparais
         //if (challengeMe == false)
@@ -146,7 +146,7 @@ public class ChallengeSniffer : MonoBehaviour {
         //        d = true;
         //    }
         //}
-    }
+    //}
 
 
 

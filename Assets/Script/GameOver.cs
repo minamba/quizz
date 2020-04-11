@@ -120,11 +120,11 @@ public class GameOver : MonoBehaviour {
                             if (SaveDatas.fisrtTimePLay == true)
                             canvasWin.GetComponentsInChildren<Text>()[0].text = "Cool, tu viens de faire ton premier score";
                         else
-                            canvasWin.GetComponentsInChildren<Text>()[0].text = "Bravo, tu as battu ton propre record";
+                            canvasWin.GetComponentsInChildren<Text>()[0].text = "Bravo, tu as battu ton propre record !";
 
                         if (Choice.sizeList == finalScore && goldUp == false)
                         {
-                            canvasWin.GetComponentsInChildren<Text>()[0].text = "Excellent, tu as eu le meilleur score";
+                            canvasWin.GetComponentsInChildren<Text>()[0].text = "Ma sha Allah, tu as eu le meilleur score. Bravo !";
                         }
 
                         canvasFail.SetActive(false);
@@ -137,7 +137,7 @@ public class GameOver : MonoBehaviour {
                     else if (SaveDatas.win == false)
                     {
                         canvasFail.SetActive(true);
-                        canvasFail.GetComponentsInChildren<Text>()[0].text = "Oh non, tu n'as pas battu ton record";
+                        canvasFail.GetComponentsInChildren<Text>()[0].text = "Je sais que tu peux faire mieux !";
                         canvasWin.SetActive(false);
                         canvasFirstPlay.SetActive(false);
                         canvasZeroPoint.SetActive(false);
@@ -148,7 +148,7 @@ public class GameOver : MonoBehaviour {
                 else if (finalScore == 0)
                 {
                     canvasZeroPoint.SetActive(true);
-                    canvasZeroPoint.GetComponentsInChildren<Text>()[0].text = "Hmm, je pense que tu devrais reviser..";
+                    canvasZeroPoint.GetComponentsInChildren<Text>()[0].text = "Essai encore.. ";
                     canvasWin.SetActive(false);
                     canvasFail.SetActive(false);
                     canvasFirstPlay.SetActive(false);

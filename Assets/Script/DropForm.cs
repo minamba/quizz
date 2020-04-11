@@ -29,7 +29,7 @@ public class DropForm : MonoBehaviour
     }
 
 
-    public void DropdownLevel_IndexChanged(int index)
+    public IEnumerator DropdownLevel_IndexChanged(int index)
     {
 
         var datas = webServ.GetLevels();
@@ -43,6 +43,7 @@ public class DropForm : MonoBehaviour
 
         dropDownSelectedLevel = lev[index];
 
+        yield return new WaitForSeconds((float)1);
         //Debug.Log(dropDownSelectedLevel);
     }
 

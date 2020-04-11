@@ -59,10 +59,10 @@ public class DropDownStatus : MonoBehaviour {
     // Update is called once per frame
     public void ListofStatus()
     {
-        statusList.Add("En ligne");
-        statusList.Add("Absent");
-        statusList.Add("Hors ligne");
-        dds.AddOptions(statusList);
+        //statusList.Add("En ligne");
+        //statusList.Add("Absent");
+        //statusList.Add("Hors ligne");
+        //dds.AddOptions(statusList);
     }
 
     public void ShowStatus()
