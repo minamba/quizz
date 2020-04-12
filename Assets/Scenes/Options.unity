@@ -956,7 +956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &547168011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2922,11 +2922,13 @@ MonoBehaviour:
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
   datas2:
     UserPseudo: 
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
 --- !u!4 &1119830563
 Transform:
   m_ObjectHideFlags: 0

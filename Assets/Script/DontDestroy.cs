@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Script;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,13 +27,6 @@ public class DontDestroy : MonoBehaviour {
 
     void Awake()
     {
-
-        //GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
-        //if (objs.Length > 1)
-        //    Destroy(this.gameObject);
-        //    DontDestroyOnLoad(this.gameObject);
-
-
         if(instance != null)
         {
             Destroy(gameObject);
@@ -46,34 +40,16 @@ public class DontDestroy : MonoBehaviour {
 
 
 
-    public void Mute()
+    public static void Mute()
     {
-        if(muted == false)
+        if (SoundScript.smuted == true)
         {
-            muted = true;
+            AudioListener.volume = 0;
         }
         else
         {
-            muted = false;
+            AudioListener.volume = 1;
         }
-
-        //if(aud.mute ==  false)
-        //{
-        //    aud.mute = true;
-        //    buttonSound.SetActive(false);
-        //    buttonMute.SetActive(true);
-        //}
-        //else
-        //{
-        //    aud.mute = false;
-        //    buttonSound.SetActive(true);
-        //    buttonMute.SetActive(false);
-        //}
-
-        //aud.mute = !aud.mute;
-         //GameObject.Find("Audio Source").SetActive(false);
-
-        //AudioListener.pause = !AudioListener.pause;
     }
 
 }
