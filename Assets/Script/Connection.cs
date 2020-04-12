@@ -81,7 +81,7 @@ public class Connection : MonoBehaviour {
             {
                 sw1 = System.IO.File.CreateText(destination);
                 sw1.Close();
-                datas = new UserStatus(pseudo, 1, user.sexe, lid);
+                datas = new UserStatus(pseudo, 1, user.sexe, lid,true);
                 string jnDataString = JsonUtility.ToJson(datas, true);
                 sw1 = new StreamWriter(destination);
                 sw1.WriteLine(jnDataString);
@@ -89,7 +89,7 @@ public class Connection : MonoBehaviour {
             }
             else
             {
-                datas = new UserStatus(pseudo, 1, user.sexe,lid);
+                datas = new UserStatus(pseudo, 1, user.sexe, lid, true);
                 string jnDataString = JsonUtility.ToJson(datas, true);
                 sw1 = new StreamWriter(destination);
                 sw1.WriteLine(jnDataString);

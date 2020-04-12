@@ -130,6 +130,11 @@ public class ButtonsActions : MonoBehaviour
         StartCoroutine(LaunchMyscores());
     }
 
+    public void Parameters()
+    {
+        StartCoroutine(LaunchParameters());
+    }
+
 
     public void BackToConnection()
     {
@@ -138,7 +143,12 @@ public class ButtonsActions : MonoBehaviour
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    public IEnumerator LaunchParameters()
+    {
+        //SceneManager.LoadScene(sceneBuildIndex: 8);
+        yield return new WaitForSeconds((float)0.2);
+        Application.LoadLevel("Parameters");
+    }
 
     public IEnumerator LaunchMainmenu()
     {
@@ -269,6 +279,10 @@ public class ButtonsActions : MonoBehaviour
         yield return new WaitForSeconds((float)0.2);
         Application.LoadLevel("MyScores");
     }
+
+
+
+
 
 
     public void SendMail ()

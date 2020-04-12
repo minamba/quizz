@@ -39,8 +39,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LostPass.unity
     guid: b6e93e67beb74be46b73bd070044b5f1
   - enabled: 0
-    path: Assets/Scenes/PassLost.unity
+    path: 
     guid: 79258bebb24e6964ea22082198b5cf32
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Parameters.unity
+    guid: 7d4e07c1d421bb44381ed506ac67ac29
+  m_configObjects: {}

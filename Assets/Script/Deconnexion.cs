@@ -39,7 +39,7 @@ public class Deconnexion : MonoBehaviour {
                 {
                     var UserSexe = cwb.GetUserByPseudo(datas.UserPseudo);
                     int lid = int.Parse(UserSexe.u_fk_level_id.ToString());
-                    datas2 = new UserStatus(datas.UserPseudo, 0, UserSexe.sexe,lid);
+                    datas2 = new UserStatus(datas.UserPseudo, 0, UserSexe.sexe,lid, datas.SoundPref); 
                     string jnDataString = JsonUtility.ToJson(datas2, true);
                     sw1 = new StreamWriter(destination);
                     sw1.WriteLine(jnDataString);

@@ -15,6 +15,7 @@ public class GoodBadResponses : MonoBehaviour {
     {
         //StartCoroutine(GoodAnimation());
         //StartCoroutine(BadAnimation());  
+
         canvasGood = GameObject.Find("AnimationGood");
         canvasBad = GameObject.Find("AnimationBad");
     }

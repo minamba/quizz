@@ -12,12 +12,12 @@ public class ReactivateAnimation : MonoBehaviour {
         {
             GameObject.Find("Bulle").SetActive(false);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             GameObject.Find("BulleCharacter").SetActive(false);
         }
 
-       
+
         if (GameOver.endGame == true)
         {
             Time.timeScale = 1;

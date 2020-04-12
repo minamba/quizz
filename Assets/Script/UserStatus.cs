@@ -13,13 +13,15 @@ namespace Assets.Script
         public int Status;
         public string Sexe;
         public int Level;
+        public bool SoundPref;
 
-        public UserStatus(string userPseudo, int status, string sexe, int level)
+        public UserStatus(string userPseudo, int status, string sexe, int level, bool soundPref)
         {
             this.UserPseudo = userPseudo;
             this.Status = status;
             this.Sexe = sexe;
             this.Level = level;
+            this.SoundPref = soundPref;
 
         }
     }
