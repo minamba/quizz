@@ -219,6 +219,7 @@ public class Game : MonoBehaviour
             response = r;
             int? time = webServ.GetTimerByQuestion(question.text.ToString());
             timeSecond = float.Parse(time.ToString());
+            Debug.Log("time response :" + timeSecond.ToString());
             int? points = webServ.GetPointByQuestion(question.text.ToString());
             point = (int)points;
             bb = true;

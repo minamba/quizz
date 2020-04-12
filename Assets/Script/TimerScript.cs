@@ -96,7 +96,7 @@ public class TimerScript : MonoBehaviour
                 Canvas.GetComponent<Game>().RandomQuestion();
                 b = false;
                 //Debug.Log("je lance une nouvelle question !");
-                maxTime = GameObject.Find("Canvas").GetComponent<Game>().timeSecond;
+                maxTime = (GameObject.Find("Canvas").GetComponent<Game>().timeSecond) * 2;
                 timeLeft = maxTime;
                 timerBar.fillAmount = timeLeft;
 
