@@ -17,25 +17,47 @@ public class Connection : MonoBehaviour
     private string destination;
     public static string currentUser;
     public static int currentUserLevel;
+    private static bool canVisible = false;
     
 
     // Use this for initialization
     void Start()
     {
+
+        canvasFormC = GameObject.Find("CanvasErrorFormC");     
         PseudoG = GameObject.Find("CanvasPseudo");
         PWDG = GameObject.Find("CanvasPwd");
-        canvasFormC = GameObject.Find("CanvasErrorFormC");
-        canvasFormC.SetActive(false);
+ 
         UserStatus();
-
-
-
     }
 
 
-    //USER CONNECTION
-    public void UserConnexion()
+     void Update()
     {
+        try
+        {
+            if (canVisible == false)
+            {
+                canvasFormC.SetActive(false);
+            }
+            else
+            {
+                canvasFormC.SetActive(true);
+                canvasFormC.GetComponentsInChildren<Text>()[1].text = "Vos informations de connexion ne sont pas valide !";
+            }
+        }
+        catch { }
+    }
+
+    public void CallUserConnexion()
+    {
+        StartCoroutine(UserConnexion());
+    }
+
+    //USER CONNECTION
+    public IEnumerator UserConnexion()
+    {
+        yield return new WaitForSeconds(0);
         string pseudo = PseudoG.GetComponentsInChildren<Text>()[1].text;
         string pwd = PWDG.GetComponentsInChildren<InputField>()[0].text;
 
@@ -50,12 +72,7 @@ public class Connection : MonoBehaviour
             }
             else
             {
-                canvasFormC.SetActive(true);
-                //canvasFormC.SetActive(true);
-                //canvasFormC.GetComponentsInChildren<Text>()[1].text = "Vos informations de connexion ne sont pas valide !";
-
-                //Debug.Log("identifiant incorrect");
-                //Debug.Log(pseudo + " " + pwd);
+                canVisible = true;
             }
         }
         catch (Exception e)
@@ -174,16 +191,15 @@ public class Connection : MonoBehaviour
 
     public void CloseCanvasError()
     {
-        canvasFormC = GameObject.Find("CanvasErrorForm");
-        canvasFormC.SetActive(false);
+        canvasFormC = GameObject.Find("CanvasErrorFormC");
+        canVisible = false;
     }
 
 
 
     public void CloseCanvasError2()
     {
-        canvasFormC = GameObject.Find("CanvasErrorFormRegister");
-        canvasFormC.SetActive(false);
+        GameObject.Find("CanvasErrorFormRegister").SetActive(false);
     }
 
 
