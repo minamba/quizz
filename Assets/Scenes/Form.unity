@@ -156,19 +156,22 @@ MonoBehaviour:
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
   datas2:
     UserPseudo: 
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
   datas3:
     UserPseudo: 
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
   PseudoG: {fileID: 0}
   PWDG: {fileID: 0}
-  canvasForm: {fileID: 0}
+  canvasFormC: {fileID: 0}
 --- !u!114 &21326193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2457,19 +2460,22 @@ MonoBehaviour:
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
   datas2:
     UserPseudo: 
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
   datas3:
     UserPseudo: 
     Status: 0
     Sexe: 
     Level: 0
+    SoundPref: 0
   PseudoG: {fileID: 0}
   PWDG: {fileID: 0}
-  canvasForm: {fileID: 0}
+  canvasFormC: {fileID: 0}
 --- !u!114 &1081871698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5102,7 +5108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: -298.76978}
+  m_AnchoredPosition: {x: 6, y: -298.76978}
   m_SizeDelta: {x: 133.2, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1810083937
