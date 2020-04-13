@@ -134,10 +134,6 @@ public partial class WebService1 : System.Web.Services.Protocols.SoapHttpClientP
     
     private System.Threading.SendOrPostCallback GetListOfUsersScoresFilterOperationCompleted;
     
-    private System.Threading.SendOrPostCallback GetListOfUsersScoresFilterByLevelOperationCompleted;
-    
-    private System.Threading.SendOrPostCallback GetListOfUsersScoresFilterByDateOperationCompleted;
-    
     private System.Threading.SendOrPostCallback GetScoreTrackingExistOperationCompleted;
     
     /// <remarks/>
@@ -303,12 +299,6 @@ public partial class WebService1 : System.Web.Services.Protocols.SoapHttpClientP
     
     /// <remarks/>
     public event GetListOfUsersScoresFilterCompletedEventHandler GetListOfUsersScoresFilterCompleted;
-    
-    /// <remarks/>
-    public event GetListOfUsersScoresFilterByLevelCompletedEventHandler GetListOfUsersScoresFilterByLevelCompleted;
-    
-    /// <remarks/>
-    public event GetListOfUsersScoresFilterByDateCompletedEventHandler GetListOfUsersScoresFilterByDateCompleted;
     
     /// <remarks/>
     public event GetScoreTrackingExistCompletedEventHandler GetScoreTrackingExistCompleted;
@@ -1896,88 +1886,34 @@ public partial class WebService1 : System.Web.Services.Protocols.SoapHttpClientP
     
     /// <remarks/>
     [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListOfUsersScoresFilter", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-    public UsersScores[] GetListOfUsersScoresFilter(string name) {
+    public UsersScoresFilter[] GetListOfUsersScoresFilter(string name, string level, string date) {
         object[] results = this.Invoke("GetListOfUsersScoresFilter", new object[] {
-                    name});
-        return ((UsersScores[])(results[0]));
+                    name,
+                    level,
+                    date});
+        return ((UsersScoresFilter[])(results[0]));
     }
     
     /// <remarks/>
-    public void GetListOfUsersScoresFilterAsync(string name) {
-        this.GetListOfUsersScoresFilterAsync(name, null);
+    public void GetListOfUsersScoresFilterAsync(string name, string level, string date) {
+        this.GetListOfUsersScoresFilterAsync(name, level, date, null);
     }
     
     /// <remarks/>
-    public void GetListOfUsersScoresFilterAsync(string name, object userState) {
+    public void GetListOfUsersScoresFilterAsync(string name, string level, string date, object userState) {
         if ((this.GetListOfUsersScoresFilterOperationCompleted == null)) {
             this.GetListOfUsersScoresFilterOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListOfUsersScoresFilterOperationCompleted);
         }
         this.InvokeAsync("GetListOfUsersScoresFilter", new object[] {
-                    name}, this.GetListOfUsersScoresFilterOperationCompleted, userState);
+                    name,
+                    level,
+                    date}, this.GetListOfUsersScoresFilterOperationCompleted, userState);
     }
     
     private void OnGetListOfUsersScoresFilterOperationCompleted(object arg) {
         if ((this.GetListOfUsersScoresFilterCompleted != null)) {
             System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
             this.GetListOfUsersScoresFilterCompleted(this, new GetListOfUsersScoresFilterCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-        }
-    }
-    
-    /// <remarks/>
-    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListOfUsersScoresFilterByLevel", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-    public UsersScores[] GetListOfUsersScoresFilterByLevel(string name) {
-        object[] results = this.Invoke("GetListOfUsersScoresFilterByLevel", new object[] {
-                    name});
-        return ((UsersScores[])(results[0]));
-    }
-    
-    /// <remarks/>
-    public void GetListOfUsersScoresFilterByLevelAsync(string name) {
-        this.GetListOfUsersScoresFilterByLevelAsync(name, null);
-    }
-    
-    /// <remarks/>
-    public void GetListOfUsersScoresFilterByLevelAsync(string name, object userState) {
-        if ((this.GetListOfUsersScoresFilterByLevelOperationCompleted == null)) {
-            this.GetListOfUsersScoresFilterByLevelOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListOfUsersScoresFilterByLevelOperationCompleted);
-        }
-        this.InvokeAsync("GetListOfUsersScoresFilterByLevel", new object[] {
-                    name}, this.GetListOfUsersScoresFilterByLevelOperationCompleted, userState);
-    }
-    
-    private void OnGetListOfUsersScoresFilterByLevelOperationCompleted(object arg) {
-        if ((this.GetListOfUsersScoresFilterByLevelCompleted != null)) {
-            System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-            this.GetListOfUsersScoresFilterByLevelCompleted(this, new GetListOfUsersScoresFilterByLevelCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-        }
-    }
-    
-    /// <remarks/>
-    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetListOfUsersScoresFilterByDate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-    public UsersScores[] GetListOfUsersScoresFilterByDate(System.DateTime date) {
-        object[] results = this.Invoke("GetListOfUsersScoresFilterByDate", new object[] {
-                    date});
-        return ((UsersScores[])(results[0]));
-    }
-    
-    /// <remarks/>
-    public void GetListOfUsersScoresFilterByDateAsync(System.DateTime date) {
-        this.GetListOfUsersScoresFilterByDateAsync(date, null);
-    }
-    
-    /// <remarks/>
-    public void GetListOfUsersScoresFilterByDateAsync(System.DateTime date, object userState) {
-        if ((this.GetListOfUsersScoresFilterByDateOperationCompleted == null)) {
-            this.GetListOfUsersScoresFilterByDateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetListOfUsersScoresFilterByDateOperationCompleted);
-        }
-        this.InvokeAsync("GetListOfUsersScoresFilterByDate", new object[] {
-                    date}, this.GetListOfUsersScoresFilterByDateOperationCompleted, userState);
-    }
-    
-    private void OnGetListOfUsersScoresFilterByDateOperationCompleted(object arg) {
-        if ((this.GetListOfUsersScoresFilterByDateCompleted != null)) {
-            System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-            this.GetListOfUsersScoresFilterByDateCompleted(this, new GetListOfUsersScoresFilterByDateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
         }
     }
     
@@ -2431,11 +2367,13 @@ public partial class t_scores {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-public partial class UsersScores {
+public partial class UsersScoresFilter {
     
     private string lastNameField;
     
     private string firstNameField;
+    
+    private string pseudoField;
     
     private string genderField;
     
@@ -2466,6 +2404,121 @@ public partial class UsersScores {
         }
         set {
             this.firstNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string Pseudo {
+        get {
+            return this.pseudoField;
+        }
+        set {
+            this.pseudoField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string Gender {
+        get {
+            return this.genderField;
+        }
+        set {
+            this.genderField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public System.DateTime DateQuizz {
+        get {
+            return this.dateQuizzField;
+        }
+        set {
+            this.dateQuizzField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string CharacterName {
+        get {
+            return this.characterNameField;
+        }
+        set {
+            this.characterNameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public int Point {
+        get {
+            return this.pointField;
+        }
+        set {
+            this.pointField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string score {
+        get {
+            return this.scoreField;
+        }
+        set {
+            this.scoreField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string Level {
+        get {
+            return this.levelField;
+        }
+        set {
+            this.levelField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "0.0.0.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+public partial class UsersScores {
+    
+    private string nameField;
+    
+    private string pseudoField;
+    
+    private string genderField;
+    
+    private System.DateTime dateQuizzField;
+    
+    private string characterNameField;
+    
+    private int pointField;
+    
+    private string scoreField;
+    
+    private string levelField;
+    
+    /// <remarks/>
+    public string Name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string Pseudo {
+        get {
+            return this.pseudoField;
+        }
+        set {
+            this.pseudoField = value;
         }
     }
     
@@ -4203,62 +4256,10 @@ public partial class GetListOfUsersScoresFilterCompletedEventArgs : System.Compo
     }
     
     /// <remarks/>
-    public UsersScores[] Result {
+    public UsersScoresFilter[] Result {
         get {
             this.RaiseExceptionIfNecessary();
-            return ((UsersScores[])(this.results[0]));
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "0.0.0.0")]
-public delegate void GetListOfUsersScoresFilterByLevelCompletedEventHandler(object sender, GetListOfUsersScoresFilterByLevelCompletedEventArgs e);
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "0.0.0.0")]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-public partial class GetListOfUsersScoresFilterByLevelCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-    
-    private object[] results;
-    
-    internal GetListOfUsersScoresFilterByLevelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-            base(exception, cancelled, userState) {
-        this.results = results;
-    }
-    
-    /// <remarks/>
-    public UsersScores[] Result {
-        get {
-            this.RaiseExceptionIfNecessary();
-            return ((UsersScores[])(this.results[0]));
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "0.0.0.0")]
-public delegate void GetListOfUsersScoresFilterByDateCompletedEventHandler(object sender, GetListOfUsersScoresFilterByDateCompletedEventArgs e);
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "0.0.0.0")]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-public partial class GetListOfUsersScoresFilterByDateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-    
-    private object[] results;
-    
-    internal GetListOfUsersScoresFilterByDateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-            base(exception, cancelled, userState) {
-        this.results = results;
-    }
-    
-    /// <remarks/>
-    public UsersScores[] Result {
-        get {
-            this.RaiseExceptionIfNecessary();
-            return ((UsersScores[])(this.results[0]));
+            return ((UsersScoresFilter[])(this.results[0]));
         }
     }
 }

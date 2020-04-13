@@ -5,34 +5,33 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Connection : MonoBehaviour {
+public class Connection : MonoBehaviour
+{
     CallWebService webServ = new CallWebService();
     public UserStatus datas;
     public UserStatus datas2;
     public UserStatus datas3;
     public GameObject PseudoG;
     public GameObject PWDG;
-    public GameObject canvasForm;
+    public  GameObject canvasFormC;
     private string destination;
     public static string currentUser;
     public static int currentUserLevel;
-
+    
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         PseudoG = GameObject.Find("CanvasPseudo");
         PWDG = GameObject.Find("CanvasPwd");
-        canvasForm = GameObject.Find("CanvasErrorForm");
-        canvasForm.SetActive(false);
+        canvasFormC = GameObject.Find("CanvasErrorFormC");
+        canvasFormC.SetActive(false);
         UserStatus();
-    }
 
 
-    public IEnumerator hide()
-    {
-        yield return new WaitForSeconds((float)1);
-        canvasForm.SetActive(false);
+
     }
+
 
     //USER CONNECTION
     public void UserConnexion()
@@ -43,7 +42,7 @@ public class Connection : MonoBehaviour {
         //Debug.Log("pseuuudo :::::::  " + pseudo);
         //Debug.Log("pwd :::::::  " + pwd);
         try
-        {     
+        {
             if (webServ.UserConnection(pseudo, pwd) == true)
             {
                 UserCreateStatus(pseudo); //création du fichier de connexion l'orsque l'utilisateur se connecte
@@ -51,9 +50,9 @@ public class Connection : MonoBehaviour {
             }
             else
             {
-
-                canvasForm.SetActive(true);
-                canvasForm.GetComponentsInChildren<Text>()[1].text= "Vos informations de connexion ne sont pas valide !";
+                canvasFormC.SetActive(true);
+                //canvasFormC.SetActive(true);
+                //canvasFormC.GetComponentsInChildren<Text>()[1].text = "Vos informations de connexion ne sont pas valide !";
 
                 //Debug.Log("identifiant incorrect");
                 //Debug.Log(pseudo + " " + pwd);
@@ -61,7 +60,7 @@ public class Connection : MonoBehaviour {
         }
         catch (Exception e)
         {
-            //Debug.Log(e.Message);
+            Debug.Log(e.Message);
         }
     }
 
@@ -81,7 +80,7 @@ public class Connection : MonoBehaviour {
             {
                 sw1 = System.IO.File.CreateText(destination);
                 sw1.Close();
-                datas = new UserStatus(pseudo, 1, user.sexe, lid,true);
+                datas = new UserStatus(pseudo, 1, user.sexe, lid, true);
                 string jnDataString = JsonUtility.ToJson(datas, true);
                 sw1 = new StreamWriter(destination);
                 sw1.WriteLine(jnDataString);
@@ -89,7 +88,10 @@ public class Connection : MonoBehaviour {
             }
             else
             {
-                datas = new UserStatus(pseudo, 1, user.sexe, lid, true);
+                string loadedDatas = File.ReadAllText(destination);
+                datas2 = JsonUtility.FromJson<UserStatus>(loadedDatas);
+
+                datas = new UserStatus(pseudo, 1, user.sexe, lid,datas2.SoundPref);
                 string jnDataString = JsonUtility.ToJson(datas, true);
                 sw1 = new StreamWriter(destination);
                 sw1.WriteLine(jnDataString);
@@ -105,15 +107,16 @@ public class Connection : MonoBehaviour {
     //CETTE METHODE PERMET DE SAVOIR SI UN UTILISATEUR S'EST DEJAS CONNECTE UNE FOIS ET QU'IL NE S'EST PAS DECONNECTE DE SON PLEIN GRES
     public void UserStatus()
     {
+        
         try
         {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
                      destination = Application.persistentDataPath + "/user.json";
-        #elif UNITY_ANDROID
+#elif UNITY_ANDROID
                       destination = Application.persistentDataPath + "/user.json";
                             Debug.Log("SACAMACHE "+destination);
                       StartCoroutine(GetDataInAndroid(destination));
-        #endif
+#endif
             //Debug.Log(destination);
 
             if (File.Exists(destination))
@@ -140,6 +143,8 @@ public class Connection : MonoBehaviour {
         {
             //Debug.Log(e.Message);
         }
+
+        canvasFormC.SetActive(false);
     }
 
 
@@ -149,7 +154,7 @@ public class Connection : MonoBehaviour {
     {
         //Debug.Log("je suis dans lemul android : " + url);
 
-       WWW www = new WWW(url);
+        WWW www = new WWW(url);
         yield return www;
         try
         {
@@ -169,16 +174,16 @@ public class Connection : MonoBehaviour {
 
     public void CloseCanvasError()
     {
-        canvasForm = GameObject.Find("CanvasErrorForm");
-        canvasForm.SetActive(false);
+        canvasFormC = GameObject.Find("CanvasErrorForm");
+        canvasFormC.SetActive(false);
     }
 
 
 
     public void CloseCanvasError2()
     {
-        canvasForm = GameObject.Find("CanvasErrorFormRegister");
-        canvasForm.SetActive(false);
+        canvasFormC = GameObject.Find("CanvasErrorFormRegister");
+        canvasFormC.SetActive(false);
     }
 
 

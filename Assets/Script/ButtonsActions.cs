@@ -22,11 +22,10 @@ public class ButtonsActions : MonoBehaviour
     private static GameObject canvasFormR;
     public static bool clickMainMenu = false;
     t_duels duel = new t_duels();
-    CallWebService webServ = new CallWebService();
-
-
+    CallWebService webServ;
     void Start()
     {
+         webServ = new CallWebService();
     }
 
     //Main menu game pause////////////////////////////////////////////////////////////////////////////////////////////////////

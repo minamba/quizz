@@ -15,7 +15,7 @@ namespace Assets.Script
         public static bool smuted;
         private DontDestroy destroy;
         private static UserStatus datas1;
-        static string destination;
+        private static string destination;
 
         void Start()
         {
@@ -37,7 +37,7 @@ namespace Assets.Script
             {
                 buttonMute.SetActive(false);
                 buttonSound.SetActive(true);
-                smuted = false;            
+                smuted = false;
             }
 
             PauseSound();
