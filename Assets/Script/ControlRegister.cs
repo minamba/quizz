@@ -27,9 +27,9 @@ public class ControlRegister : MonoBehaviour {
 
         t_users u = null;
         bool b = false;
-        string lastName = GameObject.Find("lastName").GetComponentsInChildren<Text>()[1].text;
-        string firstName = GameObject.Find("firstName").GetComponentsInChildren<Text>()[1].text;
-        string pseudonym = GameObject.Find("pseudonym").GetComponentsInChildren<Text>()[1].text;
+        string lastName = GameObject.Find("lastName").GetComponentsInChildren<Text>()[1].text.ToLower();
+        string firstName = GameObject.Find("firstName").GetComponentsInChildren<Text>()[1].text.ToLower();
+        string pseudonym = GameObject.Find("pseudonym").GetComponentsInChildren<Text>()[1].text.ToLower();
         string pwd = GameObject.Find("password").GetComponentsInChildren<InputField>()[0].text;
         string pwd2 = GameObject.Find("password2").GetComponentsInChildren<InputField>()[0].text;
         //string mail = GameObject.Find("mail").GetComponentsInChildren<Text>()[1].text;
@@ -49,6 +49,8 @@ public class ControlRegister : MonoBehaviour {
         }
         else
         {
+            //Debug.Log(level);
+
             canvasFormR.SetActive(true);
 
 

@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
 {
     private bool bb = false;
     private Text question;
+    private Text totQuestion;
     private Text counter;
     private Text score;
     public static Text leftAnswer;
@@ -47,7 +48,9 @@ public class Game : MonoBehaviour
     private static List<t_responses> responses = new List<t_responses>();
     private static List<t_questions> questions = new List<t_questions>();
     private static List<t_questions> questionsReplay = new List<t_questions>();
+    public static int totalQuestion = 0;
     private bool trackingSave = false;
+    public static int numberCurrentQuestion = 0;
     // Use this for initialization
     public void Start()
     {
@@ -56,6 +59,7 @@ public class Game : MonoBehaviour
         //listOfQuestions.Add("EMPTY");
         Responses.pointCount = 0;
         GameObject.Find("AnimationBad").SetActive(false);
+        totQuestion = GameObject.Find("Counter_Text").GetComponent<Text>();
         canvasAnimGood = GameObject.Find("AnimationGood");
         canvasAnimBad = GameObject.Find("AnimationBad");
         canvasStart = GameObject.Find("CanvasGameStart");
@@ -82,6 +86,7 @@ public class Game : MonoBehaviour
             //Debug.Log(questions.Count);
         }
 
+        totalQuestion = questions.Count;
     }
 
     // Update is called once per frame
@@ -104,9 +109,10 @@ public class Game : MonoBehaviour
             GameObject.Find("Canvas").GetComponent<HideControls>().Enable();
 
             try
-            {
+            {            
                 randomNumber = GenerateRandomNumber();
                 Question();
+               
             }
             catch (Exception e)
             {
@@ -194,7 +200,10 @@ public class Game : MonoBehaviour
 
     public void Question()
     {
-            
+            if(numberCurrentQuestion <= totalQuestion)
+                numberCurrentQuestion++;
+
+            totQuestion.text = numberCurrentQuestion + "/" + totalQuestion;
             string r =null;
             t_questions t = new t_questions();
             t = questions[randomNumber];

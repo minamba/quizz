@@ -99,7 +99,8 @@ public class GameOver : MonoBehaviour {
                 Time.timeScale = 0;
                 canvasGameOver.SetActive(true);
                 finalScore = Game.sc;
-                GameObject.Find("CanvasGameOver").GetComponentsInChildren<Text>()[0].text = "Fin de partie, ton score : " + finalScore;
+                GameObject.Find("CanvasGameOver").GetComponentsInChildren<Text>()[0].text = "Fin de partie, ton score : " + finalScore + "/" + Game.totalQuestion;
+                Game.numberCurrentQuestion = 0;
 
                 if (finalScore > 0)
                 {
